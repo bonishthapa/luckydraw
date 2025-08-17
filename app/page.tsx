@@ -35,7 +35,6 @@ export default function SignInPage() {
       headers: { "Content-Type": "application/json" },
     })
       .then(async (data) => {
-        console.log("Sign-in successful:", data);
         await signIn(email, password);
         localStorage.setItem("token", data.data.token);
         router.push("/dashboard");
@@ -139,25 +138,6 @@ export default function SignInPage() {
                 )}
               </Button>
             </form>
-          </CardContent>
-        </Card>
-
-        {/* Demo Credentials */}
-        <Card className="bg-muted/50 border-dashed">
-          <CardContent className="pt-4">
-            <div className="text-center space-y-2">
-              <p className="text-sm font-medium text-muted-foreground">
-                Demo Credentials
-              </p>
-              <div className="text-xs space-y-1">
-                <p>
-                  <strong>Email:</strong> admin@luckydraw.com
-                </p>
-                <p>
-                  <strong>Password:</strong> password123
-                </p>
-              </div>
-            </div>
           </CardContent>
         </Card>
       </div>
